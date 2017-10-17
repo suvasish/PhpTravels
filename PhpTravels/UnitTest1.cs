@@ -18,8 +18,9 @@ namespace PhpTravels
         [Test]
         public void TestMethod1()
         {
-            driver.Navigate().GoToUrl("http://www.google.com");
+            driver.Navigate().GoToUrl("http://www.phptravels.net/");
             driver.Manage().Window.Maximize();
+            System.Console.WriteLine(driver.Title);
         }
 
         [TearDown]
