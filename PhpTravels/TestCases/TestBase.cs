@@ -15,8 +15,7 @@ namespace PhpTravels.TestCases
         [SetUp]
         public void Initialize()
         {
-            var browser = Config.GetBrowser().ToLower();
-            switch (browser)
+            switch (Config.GetBrowser().ToLower())
             {
                 case "firefox":
                     driver = new FirefoxDriver();
