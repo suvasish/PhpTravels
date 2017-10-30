@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace PhpTravels.TestCases
@@ -15,9 +15,15 @@ namespace PhpTravels.TestCases
         [SetUp]
         public void Initialize()
         {
-            if (GetBrowser().ToLower() == "chrome")
+            var browser = Config.GetBrowser().ToLower();
+            switch (browser)
             {
-                driver = new ChromeDriver();
+                case "firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                default:
+                    driver = new ChromeDriver();
+                    break;
             }
         }
 
@@ -29,7 +35,7 @@ namespace PhpTravels.TestCases
 
         public void OpenUrl()
         {
-            driver.Navigate().GoToUrl(GetUrl());
+            driver.Navigate().GoToUrl(Config.GetUrl());
             driver.Manage().Window.Maximize();
 
             // Make sure the page loaded successfully.
@@ -37,16 +43,5 @@ namespace PhpTravels.TestCases
             wait.Until<IWebElement>(d => d.FindElement(By.ClassName("logo")));
         }
 
-        private string GetUrl()
-        {
-            var appSettings = ConfigurationManager.AppSettings;
-            return appSettings["Url"];
-        }
-
-        private string GetBrowser()
-        {
-            var appSettings = ConfigurationManager.AppSettings;
-            return appSettings["Browser"];
-        }
     }
 }
