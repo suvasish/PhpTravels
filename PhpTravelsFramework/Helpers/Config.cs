@@ -1,10 +1,10 @@
 ﻿using System.Configuration;
 
-
-namespace PhpTravels
+namespace PhpTravelsFramework.Helpers
 {
     public static class Config
     {
+
         public static string GetUrl()
         {
             var appSettings = ConfigurationManager.AppSettings;
