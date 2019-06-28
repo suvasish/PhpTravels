@@ -1,47 +1,21 @@
-﻿using System;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using PhpTravelsFramework.Helpers;
+﻿using NUnit.Framework;
+using PhpTravelsFramework;
 
 namespace PhpTravels.TestCases
 {
-    [TestFixture]
     public class TestBase
     {
-        IWebDriver driver;
-
         [SetUp]
-        public void Initialize()
+        public void Init()
         {
-            switch (Config.GetBrowser().ToLower())
-            {
-                case "firefox":
-                    driver = new FirefoxDriver();
-                    break;
-                default:
-                    driver = new ChromeDriver();
-                    break;
-            }
+            Driver.Initialize();
+            HomePage.GotoSite();
         }
 
         [TearDown]
-        public void CleanUp()
+        public void Finish()
         {
-            driver.Quit();
+            Driver.Finalize();
         }
-
-        public void OpenUrl()
-        {
-            driver.Navigate().GoToUrl(Config.GetUrl());
-            driver.Manage().Window.Maximize();
-
-            // Make sure the page loaded successfully.
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            wait.Until<IWebElement>(d => d.FindElement(By.ClassName("logo")));
-        }
-
     }
 }
