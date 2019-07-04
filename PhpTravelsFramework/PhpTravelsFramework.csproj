@@ -56,9 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="HomePage.cs" />
+    <Compile Include="LoginPageClass.cs" />
     <Compile Include="MyAccountPage.cs" />
+    <Compile Include="MainPage.cs" />
+    <Compile Include="PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
