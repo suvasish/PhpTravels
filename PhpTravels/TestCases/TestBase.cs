@@ -23,7 +23,7 @@ namespace PhpTravels.TestCases
             Driver.Instance.Navigate().GoToUrl(Config.URL);
         }
 
-        public void Login_to_myAccounts()
+        public void Login_to_myAccounts(string email, string passwd)
         {
             Open_php_travels_URL();
 
@@ -31,7 +31,15 @@ namespace PhpTravels.TestCases
             defaultNavbar.Goto_login_page();
 
             var loginPage = MainPage.Loginpage;
-            loginPage.Login(Config.LoginEmail, Config.Password);
+            loginPage.Login(email, passwd);
         }
+
+        public void Verify_login_result(string expectedAlert)
+        {
+            var loginPage = MainPage.Loginpage;
+            var loginAlert = loginPage.Get_login_alert();
+            Assert.True(loginAlert == expectedAlert);
+        }
+
     }
 }

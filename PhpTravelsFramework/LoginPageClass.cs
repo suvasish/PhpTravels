@@ -37,5 +37,12 @@ namespace PhpTravelsFramework
             var loginBtn = loginPage.FindElement(By.TagName("button"));
             loginBtn.Click();
         }
+
+        public string Get_login_alert()
+        {
+            return loginPage.FindElement(By.ClassName("alert")).Text;
+        }
+
+
     }
 }
