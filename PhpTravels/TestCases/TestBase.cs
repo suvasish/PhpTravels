@@ -41,5 +41,11 @@ namespace PhpTravels.TestCases
             Assert.True(loginAlert == expectedAlert);
         }
 
+        public void Choose_search_option(string option)
+        {
+            var searchpage = MainPage.SearchPage;
+            searchpage.Select_search_option(option);
+        }
+
     }
 }

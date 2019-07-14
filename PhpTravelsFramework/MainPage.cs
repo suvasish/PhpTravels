@@ -75,6 +75,24 @@ namespace PhpTravelsFramework
                 return new LoginPageClass(LoginPageId);
             }
         }
+
+        private static IWebElement SearchPageSection
+        {
+            get
+            {
+                var xPath = ".//div[contains(@id, 'body-section')]/section";
+                return Driver.Instance.FindElement(By.XPath(xPath));
+            }
+        }
+
+        public static SearchPageClass SearchPage
+        {
+            get
+            {
+                return new SearchPageClass(SearchPageSection);
+            }
+        }
+
     }
 }
 
