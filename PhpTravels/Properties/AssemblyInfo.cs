@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PhpTravels")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hansen Technologies")]
+[assembly: AssemblyCompany("Suvasish Technologies")]
 [assembly: AssemblyProduct("PhpTravels")]
-[assembly: AssemblyCopyright("Copyright © Hansen Technologies 2017")]
+[assembly: AssemblyCopyright("Copyright © Suvasish")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
