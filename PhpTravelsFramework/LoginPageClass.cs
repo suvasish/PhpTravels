@@ -17,7 +17,7 @@ namespace PhpTravelsFramework
         {
             var xPath = ".//button[contains(@class, 'btn btn-action btn-lg btn-block loginbtn') and contains(text(), 'Login')]";
             var loginButton = loginPage.FindElement(By.XPath(xPath));
-            if (!loginButton.Enabled && loginButton.Displayed)
+            if (!loginButton.Enabled || ! loginButton.Displayed)
                 throw new Exception("LoginPage not loaded !");
         }
 
